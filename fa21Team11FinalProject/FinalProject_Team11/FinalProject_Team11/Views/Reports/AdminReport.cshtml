@@ -1,0 +1,41 @@
+﻿@model FinalProject_Team11.Models.AdminReportViewModel
+
+@using FinalProject_Team11.Models
+@{ ViewData["Title"] = "Admin Report"; }
+<h2>Details</h2>
+
+<div>
+    <h4>Totals Report for Host</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Total commission BevoBnB earned:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalCommissionEarned)
+        </dd>
+        <dt>
+            Total number of reservations:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalReservationNumber)
+        </dd>
+        <dt>
+            Average commission per reservation:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AvgCommissionPerReservation)
+        </dd>
+
+        <dt>
+            Total number of properties:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalPropertiesNumber)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home"class="btn btn-secondary">Back to Home</a>
+</div>

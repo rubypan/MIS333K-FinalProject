@@ -1,0 +1,69 @@
+@model FinalProject_Team11.Models.SearchReportViewModel
+
+@{
+    ViewData["Title"] = "Search Properties Report";
+}
+
+<h4>Search For Properties Report</h4>
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="DisplaySearchReportResults">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TotalStayRevenue" class="control-label"></label>
+                <input asp-for="TotalStayRevenue" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="TotalStayRevenue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchStayRevenue" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchStayRevenue" value="@SearchButtom.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchStayRevenue" value="@SearchButtom.Greaterthan" /> Greater than<br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCleaningFees" class="control-label"></label>
+                <input asp-for="TotalCleaningFees" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="TotalCleaningFees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchCleaningFees" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchCleaningFees" value="@SearchButtom.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchCleaningFees" value="@SearchButtom.Greaterthan" /> Greater than<br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCombinedRevenue" class="control-label"></label>
+                <input asp-for="TotalCombinedRevenue" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="TotalCombinedRevenue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchCombinedRevenue" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchCombinedRevenue" value="@SearchButtom.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchCombinedRevenue" value="@SearchButtom.Greaterthan" /> Greater than<br />
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCompletedReservations" class="control-label"></label>
+                <input asp-for="TotalCompletedReservations" type="number" step="1" class="form-control" />
+                <span asp-validation-for="TotalCompletedReservations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchCompletedReservations" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchCompletedReservations" value="@SearchButtom.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchCompletedReservations" value="@SearchButtom.Greaterthan" /> Greater than<br />
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

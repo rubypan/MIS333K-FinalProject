@@ -1,0 +1,117 @@
+﻿@model IEnumerable<FinalProject_Team11.Models.Property>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyZip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekdayPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekendPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyBedroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyBathroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CleaningFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyGuest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountNights)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountPercentage)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeekdayPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeekendPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyBedroom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyBathroom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CleaningFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyGuest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountNights)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountPercentage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PropertyID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PropertyID">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

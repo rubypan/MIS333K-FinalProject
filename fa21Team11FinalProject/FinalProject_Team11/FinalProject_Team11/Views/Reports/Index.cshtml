@@ -1,0 +1,105 @@
+@model IEnumerable<FinalProject_Team11.Models.Property>
+
+@{ ViewData["Title"] = "Index"; }
+
+<h3>Below shows all your properties</h3>
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a class="btn btn-info" asp-controller="Orders">View Orders</a>
+}
+@if (User.IsInRole("Host"))
+{
+    <a class="btn btn-light" asp-controller="Properties">View Properties</a>
+    <a asp-action="SortReport"class="btn btn-primary" asp-controller="Reports">Sort Report</a>}
+@if (User.IsInRole("Admin")) {
+    @Html.ActionLink("Totals", "AdminReport", "Reports", null, new { @class = "btn btn-danger" })}
+
+<p>
+
+</p>
+<p>Displaying @ViewBag.SelectedProperties of @ViewBag.AllProperties Properties</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekdayPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekendPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyBedroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyBathroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyState)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeekdayPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeekendPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyBedroom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyBathroom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin") && User.IsInRole("Host"))
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.PropertyID }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    }
+
+
+
+                }
+                <td>
+                    @Html.ActionLink("Report", "HostReport", new { id = item.PropertyID })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,62 @@
+﻿@model FinalProject_Team11.Models.Order
+
+@{ ViewData["Title"] = "Edit"; }
+
+<h1>Edit</h1>
+
+
+<h4>Shopping Cart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OrderID" />
+            <div class="form-group">
+                <label asp-for="OrderNumber" class="control-label"></label>
+                @Html.DisplayFor(Model => Model.OrderNumber, new { @class = "form-control" })
+
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderDate" class="control-label"></label>
+                @Html.DisplayFor(Model => Model.OrderDate, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderNotes" class="control-label"></label>
+                <input asp-for="OrderNotes" class="form-control" />
+                <span asp-validation-for="OrderNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<h5>Properties on this Order</h5>
+<table class="table table-primary">
+    <tr>
+        <th>Address</th>
+        <th>Stay Price</th>
+        <th>Individual Total Price</th>
+    </tr>
+    @foreach (Reservation rs in Model.Reservations)
+    {
+<tr>
+    <td>@Html.DisplayFor(ModelItem => rs.Property.PropertyAddress)</td>
+    <td>@Html.DisplayFor(ModelItem => rs.StayPrice)</td>
+    <td>@Html.DisplayFor(ModelItem => rs.TotalFee)</td>
+
+</tr>}
+</table>
+
+
+<div>
+    <a asp-action="Details"  asp-route-id="@Model.OrderID" class="btn btn-info">Back to Cart</a>
+    <a asp-action="Index" asp-controller="Home" asp-route-orderID="@Model.OrderID" class="btn btn-warning">Add Another Item</a>
+    <a asp-action="Index" asp-controller="Reservations" asp-route-orderID="@Model.OrderID" class="btn btn-danger">Edit Existing Items</a>
+
+</div>
+
+

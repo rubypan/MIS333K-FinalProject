@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FinalProject_Team11.Models.Review>
+
+@{
+    ViewData["Title"] = "Reviews Index";
+}
+
+<h1>Reviews for Property at @ViewBag.PropertyAddress</h1>
+<h3>Ratings: @ViewBag.PropertyRatings</h3>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TextReivew)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TextReivew)
+            </td>
+        </tr>
+    }
+
+</table>
+@*@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Host, Admin"))
+    {*@
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DisputeReview)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisputeReview)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    @*}
+}*@
+
+<a asp-action="Index" asp-controller="Home">Back to List</a>

@@ -1,0 +1,100 @@
+@model FinalProject_Team11.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Properties";
+}
+
+<h4>Search For Properties</h4>
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="DisplaySearchResults">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ratings" class="control-label"></label>
+                <input asp-for="Ratings" type="number" step="0.1" class="form-control" />
+                <span asp-validation-for="Ratings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchRating" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchRating" value="@SearchRating.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchRating" value="@SearchRating.Greaterthan" /> Greater than<br />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GuestNumber" class="control-label"></label>
+                <input asp-for="GuestNumber" type="number" step="1" class="form-control" />
+                <span asp-validation-for="GuestNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeekendPrice" class="control-label"></label>
+                <input asp-for="WeekendPrice" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="WeekendPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchWeekend" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchWeekend" value="@SearchWeekend.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchWeekend" value="@SearchWeekend.Greaterthan" /> Greater than<br />
+            </div>
+            <div class="form-group">
+                <label asp-for="WeekdayPrice" class="control-label"></label>
+                <input asp-for="WeekdayPrice" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="WeekdayPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SearchWeekday" class="control-label"></label>
+                <input type="radio" class="radio" asp-for="SearchWeekday" value="@SearchWeekday.Lessthan" /> Less than
+                <input type="radio" class="radio" asp-for="SearchWeekday" value="@SearchWeekday.Greaterthan" /> Greater than<br />
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryID" class="control-label"></label>
+                @Html.DropDownListFor(model => model.CategoryID, (SelectList)ViewBag.AllCategories, new { @class = "form-control" })
+                <span asp-validation-for="CategoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BedroomNumber" class="control-label"></label>
+                <input asp-for="BedroomNumber" type="number" step="1" class="form-control" />
+                <span asp-validation-for="BedroomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BathroomNumber" type="number" step="1" class="control-label"></label>
+                <input asp-for="BathroomNumber" class="form-control" />
+                <span asp-validation-for="BathroomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pet" /> @Html.DisplayNameFor(model => model.Pet)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FreeParking" /> @Html.DisplayNameFor(model => model.FreeParking)
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FinalProject_Team11.Models.AppUser>
+@{
+    ViewData["Title"] = "Manage Customer Accounts";
+}
+
+<h2>Manage Customer Accounts</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+                <td>
+                    <a asp-action="ModifyCustomerProfile" asp-route-id="@item.Id" class="btn btn-warning">Edit <i class="fas fa-user-edit"></i></a>
+                    <a asp-action="ChangeCustomerPassword" asp-route-id="@item.Id" class="btn btn-success">Change Customer Password <i class="fas fa-user-lock"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

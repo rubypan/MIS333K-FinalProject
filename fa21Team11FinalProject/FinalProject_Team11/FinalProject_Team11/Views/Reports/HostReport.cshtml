@@ -1,0 +1,41 @@
+﻿@model FinalProject_Team11.Models.AllPropertiesReportViewModel
+
+@using FinalProject_Team11.Models
+@{ ViewData["Title"] = "Property Report"; }
+<h2>Details</h2>
+
+<div>
+    <h4>Totals Report for Host</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Total Stay Revenue:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalStayRevenue)
+        </dd>
+        <dt>
+            Total Cleaning Fees:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalCleaningFees)
+        </dd>
+        <dt>
+            Total Combined Revenue:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalCombinedRevenue)
+        </dd>
+
+        <dt>
+            Total Completed Reservations:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalCompletedReservations)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to Reports</a>
+</div>

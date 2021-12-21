@@ -1,0 +1,124 @@
+@model IEnumerable<FinalProject_Team11.Models.Property>
+
+@{ ViewData["Title"] = "Index"; }
+
+<h1>Welcome to BevoBnB!</h1>
+<h3>Below shows our current active properties</h3>
+
+<form asp-action="Index" asp-controller="Home" method="get">
+    <a asp-action="DetailedSearch" class="btn btn-success">Detailed Search</a>
+    <a asp-action="Index" class="btn btn-danger">Show All</a>
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-info" asp-controller="Orders">
+            View Orders</a>
+}
+    @if (User.IsInRole("Host"))
+    {
+        <a class="btn btn-primary" asp-controller="Properties">
+            View Properties</a>}
+
+    @if (User.IsInRole("Admin"))
+    {
+        <h5>Manage User Accounts</h5>
+        <a asp-action="ManageAdminAccounts" asp-controller="Account" class="btn btn-success">
+            Manage Admin Accounts</a>
+            <a asp-action="ManageHostAccounts" asp-controller="Account" class="btn btn-danger">
+                Manage Host Accounts</a>
+                <a asp-action="ManageCustomerAccounts" asp-controller="Account" class="btn btn-primary">
+                    Manage Customer Accounts</a>
+                    <p />
+                    <p />
+                    <a class="btn btn-secondary" asp-controller="Categories">Manage Categories</a>}
+</form>
+
+
+<p>
+
+</p>
+<p>Displaying @ViewBag.SelectedProperties of @ViewBag.AllProperties Properties</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekdayPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekendPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyBedroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyBathroom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyState)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeekdayPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WeekendPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyBedroom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyBathroom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin") && User.IsInRole("Host"))
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.PropertyID }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    }
+
+
+
+                }
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.PropertyID })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

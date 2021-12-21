@@ -1,0 +1,82 @@
+﻿<Properties StartupConfiguration="{A6F609B6-DAAF-4CE0-A9CD-9CB9E144B413}|Default">
+  <MonoDevelop.Ide.ItemProperties.FinalProject__Team11 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalProject_Team11/Views/Home/Index.cshtml">
+    <Files>
+      <File FileName="FinalProject_Team11/Utilities/AddUser.cs" Line="1" Column="1" />
+      <File FileName="FinalProject_Team11/Views/Orders/Details.cshtml" />
+      <File FileName="FinalProject_Team11/Models/ViewModels/RoleViewModels.cs" />
+      <File FileName="FinalProject_Team11/Models/ViewModels/SearchViewModel.cs" />
+      <File FileName="FinalProject_Team11/Views/Orders/Edit.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Reservations/Details.cshtml" />
+      <File FileName="FinalProject_Team11/Controllers/ReviewsController.cs" />
+      <File FileName="FinalProject_Team11/Controllers/OrdersController.cs" />
+      <File FileName="FinalProject_Team11/Utilities/GenerateNextOrderNumber.cs" />
+      <File FileName="FinalProject_Team11/Utilities/SendEmail.cs" />
+      <File FileName="FinalProject_Team11/Models/AppUser.cs" />
+      <File FileName="FinalProject_Team11/Models/Property.cs" />
+      <File FileName="FinalProject_Team11/Models/Reservation.cs" />
+      <File FileName="FinalProject_Team11/Models/Order.cs" />
+      <File FileName="FinalProject_Team11/Views/Reservations/Create.cshtml" />
+      <File FileName="FinalProject_Team11/Controllers/PropertiesController.cs" />
+      <File FileName="FinalProject_Team11/Controllers/ReservationsController.cs" />
+      <File FileName="FinalProject_Team11/Migrations/20211201174915_updateGuest.cs" />
+      <File FileName="FinalProject_Team11/Controllers/RoleAdminController.cs" />
+      <File FileName="FinalProject_Team11/Views/Orders/Confirm.cshtml" />
+      <File FileName="FinalProject_Team11/Controllers/HomeController.cs" Line="26" Column="1" />
+      <File FileName="FinalProject_Team11/Views/Orders/Create.cshtml" />
+      <File FileName="FinalProject_Team11/Startup.cs" />
+      <File FileName="FinalProject_Team11/DAL/AppDbContext.cs" />
+      <File FileName="FinalProject_Team11/Views/Orders/Delete.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Orders/Index.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Properties/Delete.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Properties/Details.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Properties/Edit.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Properties/Index.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Reservations/Delete.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Reservations/Edit.cshtml" />
+      <File FileName="FinalProject_Team11/Seeding/SeedUsers.cs" />
+      <File FileName="FinalProject_Team11/Seeding/SeedProperties.cs" />
+      <File FileName="FinalProject_Team11/Models/Category.cs" />
+      <File FileName="FinalProject_Team11/Models/Review.cs" />
+      <File FileName="FinalProject_Team11/Views/Reviews/Create.cshtml" />
+      <File FileName="FinalProject_Team11/Views/Shared/_Layout.cshtml" Line="36" Column="100" />
+      <File FileName="FinalProject_Team11/Views/Home/Index.cshtml" Line="16" Column="71" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FinalProject_Team11" expanded="True">
+            <Node name="FinalProject_Team11" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="DAL" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ViewModels" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Seeding" expanded="True" />
+              <Node name="Utilities" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Home" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Orders" expanded="True" />
+                <Node name="Properties" expanded="True" />
+                <Node name="Reservations" expanded="True" />
+                <Node name="Reviews" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

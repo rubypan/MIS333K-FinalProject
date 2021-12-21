@@ -1,0 +1,30 @@
+﻿@model FinalProject_Team11.Models.AppUser
+@using FinalProject_Team11.Models
+@using FinalProject_Team11.Controllers
+
+<h2>Fire / Rehire Admin</h2>
+<h4>Fire Admin through activate the acccount / Rehire Admin through deactivate the account</h4>
+
+@using (Html.BeginForm("ChangeAdminUserStatus", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <label asp-for="Is_Active" class="control-label"></label>
+        <br />
+
+        <label class="radio">@Html.RadioButton("SelectedUserStatus", UserStatusEnum.Active) Active    </label>
+        <label class="radio">@Html.RadioButton("SelectedUserStatus", UserStatusEnum.Inactive) Inactive</label>
+ 
+
+    </div>
+    <div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Change Admin Status" class="btn btn-warning" />
+        </div>
+    </div>
+}

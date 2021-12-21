@@ -1,0 +1,106 @@
+﻿@model FinalProject_Team11.Models.Order
+
+@{ ViewData["Title"] = "Details"; }
+
+<h1>Review Your Order</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(ModelItem => ModelItem.OrderNumber)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(ModelItem => ModelItem.OrderNumber)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(ModelItem => ModelItem.User.FullName)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(ModelItem => ModelItem.User.FullName)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(ModelItem => ModelItem.OrderDate)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(ModelItem => ModelItem.OrderDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(ModelItem => ModelItem.OrderNotes)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(ModelItem => ModelItem.OrderNotes)
+        </dd>
+
+
+    </dl>
+</div>
+
+<h5>Properties on this Order</h5>
+<table class="table table-primary">
+    <tr>
+        <th>Check-in Date</th>
+        <th>Check-out Date</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>CleaningFee</th>
+        <th>Guests Number</th>
+        <th>Stay Price</th>
+        <th>Discount Percentage</th>
+        <th>Will get a discount if reservation days larger than:</th>
+        <th>Subtotal</th>
+        <th>Individual Reservation Total</th>
+
+    </tr>
+    @foreach (Reservation r in Model.Reservations)
+    {
+<tr>
+    <td>@Html.DisplayFor(ModelItem => r.Checkin_date)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Checkout_date)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Property.PropertyAddress)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Property.PropertyCity)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Property.PropertyState)</td>
+    <td>@Html.DisplayFor(ModelItem => r.CleaningFee)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Property.PropertyGuest)</td>
+    <td>@Html.DisplayFor(ModelItem => r.StayPrice)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Property.DiscountPercentage)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Property.DiscountNights)</td>
+    <td>@Html.DisplayFor(ModelItem => r.Subtotal)</td>
+    <td>@Html.DisplayFor(ModelItem => r.TotalFee)</td>
+
+
+</tr>}
+</table>
+<h5>Order Summary</h5>
+<table class="table table-sm table-bordered" style="width:30%">
+    <tr>
+        <th colspan="2" style="text-align:center">Order Summary</th>
+    </tr>
+    <tr>
+        <td>Order Subtotal:</td>
+        <td>@Html.DisplayFor(model => model.OrderSubtotal)</td>
+    </tr>
+    <tr>
+        <td>Sales Tax:</td>
+        <td>@Html.DisplayFor(model => model.Tax)</td>
+    </tr>
+    <tr>
+        <td>Order Total:</td>
+        <td>@Html.DisplayFor(model => model.OrderTotal)</td>
+    </tr>
+
+</table>
+
+<div> 
+    <a asp-action="Edit" asp-route-id="@Model.OrderID">Edit Your Cart</a> |
+    <a asp-action="Confirm" asp-controller="Orders" asp-route-orderid="@Model.OrderID">Confirm Your order</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

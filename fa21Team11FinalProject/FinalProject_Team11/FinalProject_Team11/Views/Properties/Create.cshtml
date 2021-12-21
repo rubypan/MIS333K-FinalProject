@@ -1,0 +1,98 @@
+﻿@model FinalProject_Team11.Models.Property
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="text-danger">@ViewBag.ErrorMessage</div>
+<h1>Create</h1>
+
+<h4>Property</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="PropertyAddress" class="control-label"></label>
+                <input asp-for="PropertyAddress" class="form-control" />
+                <span asp-validation-for="PropertyAddress" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="PropertyState" class="control-label"></label>
+                <input asp-for="PropertyState" class="form-control" />
+                <span asp-validation-for="PropertyState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropertyCity" class="control-label"></label>
+                <input asp-for="PropertyCity" class="form-control" />
+                <span asp-validation-for="PropertyCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropertyZip" class="control-label"></label>
+                <input asp-for="PropertyZip" class="form-control" />
+                <span asp-validation-for="PropertyZip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                @Html.DropDownList("SelectedCategory", (SelectList)ViewBag.AllCategories, new { @class = "form-control" })
+            </div>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <div>
+                    <label>New Category</label>
+                    <input name="NewCategory" class="form-control" /> <div class="text-danger">@ViewBag.Message</div>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="WeekdayPrice" class="control-label"></label>
+                <input asp-for="WeekdayPrice" class="form-control" />
+                <span asp-validation-for="WeekdayPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeekendPrice" class="control-label"></label>
+                <input asp-for="WeekendPrice" class="form-control" />
+                <span asp-validation-for="WeekendPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropertyBedroom" class="control-label"></label>
+                <input asp-for="PropertyBedroom" class="form-control" />
+                <span asp-validation-for="PropertyBedroom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropertyBathroom" class="control-label"></label>
+                <input asp-for="PropertyBathroom" class="form-control" />
+                <span asp-validation-for="PropertyBathroom" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pets" /> @Html.DisplayNameFor(model => model.Pets)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Parking" /> @Html.DisplayNameFor(model => model.Parking)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CleaningFee" class="control-label"></label>
+                <input asp-for="CleaningFee" class="form-control" />
+                <span asp-validation-for="CleaningFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PropertyGuest" class="control-label"></label>
+                <input asp-for="PropertyGuest" class="form-control" />
+                <span asp-validation-for="PropertyGuest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

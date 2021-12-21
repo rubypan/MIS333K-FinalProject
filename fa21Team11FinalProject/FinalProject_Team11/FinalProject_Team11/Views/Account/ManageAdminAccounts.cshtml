@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FinalProject_Team11.Models.AppUser>
+@{
+    ViewData["Title"] = "Manage Admin Accounts";
+}
+
+<h2>
+Manage Admin Accounts</h2>
+
+<p>
+    @Html.ActionLink("Hire New Admin", "CreateAdminAccount", "Account", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Is_Active)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Is_Active)
+                </td>
+                <td>
+                    <a asp-action="ModifyAdminProfile" asp-route-id="@item.Id" class="btn btn-warning">Edit <i class="fas fa-user-edit"></i></a>
+                    <a asp-action="ChangeAdminUserStatus" asp-route-id="@item.Id" class="btn btn-info">Fire or Rehire Admin <i class="fas fa-user-clock"></i></a>
+                    <a asp-action="ChangeAdminPassword" asp-route-id="@item.Id" class="btn btn-success">Change Admin Password <i class="fas fa-user-lock"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

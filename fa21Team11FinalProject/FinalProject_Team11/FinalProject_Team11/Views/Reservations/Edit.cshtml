@@ -1,0 +1,52 @@
+﻿@model FinalProject_Team11.Models.Reservation
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReservationID" />
+            <input type="hidden" asp-for="Property.PropertyID" />
+            <input type="hidden" asp-for="Order.OrderID" />
+            <div class="form-group">
+                <label asp-for="User_Email" class="control-label"></label>
+                <input asp-for="User_Email" class="form-control" />
+                <span asp-validation-for="User_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Checkin_date" class="control-label"></label>
+                <input asp-for="Checkin_date" class="form-control" />
+                <span asp-validation-for="Checkin_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Checkout_date" class="control-label"></label>
+                <input asp-for="Checkout_date" class="form-control" />
+                <span asp-validation-for="Checkout_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalFee" class="control-label"></label>
+                @Html.DisplayFor(Model => Model.TotalFee, new { @class = "form-control" })
+                <span asp-validation-for="TotalFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CleaningFee" class="control-label"></label>
+                @Html.DisplayFor(Model => Model.CleaningFee, new { @class = "form-control" })
+                <span asp-validation-for="CleaningFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to List</a>
+</div>

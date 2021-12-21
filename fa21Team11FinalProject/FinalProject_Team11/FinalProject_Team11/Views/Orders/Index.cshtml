@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FinalProject_Team11.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>
+    Order History
+</h2>
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+{
+
+        <a asp-action="Create" asp-controller="Orders" class="btn btn-primary">Create a new order</a>
+
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNotes)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNotes)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.TotalCleaning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalStayRevenue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCompleted)
+                </td>*@
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.OrderID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

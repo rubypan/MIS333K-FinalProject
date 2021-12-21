@@ -1,0 +1,7 @@
+﻿
+@model Order
+@Html.HiddenFor(model => model.OrderID)
+<h1>Thanks for choosing BevoBnB! Your order has been confirmed. Your confirmation number is @Model.OrderNumber.</h1>
+
+<a asp-action="Index">Back to List</a>
+
